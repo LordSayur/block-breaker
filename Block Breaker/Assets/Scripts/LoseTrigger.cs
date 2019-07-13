@@ -15,7 +15,7 @@ public class LoseTrigger : MonoBehaviour
     {
         if (SceneLoader != null)
         {
-            SceneLoader.LoadNextScene("Game Over");
+            SceneLoader.LoadNextScene();
         }
     }
 }
