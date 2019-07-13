@@ -14,6 +14,7 @@ public class Ball : MonoBehaviour
     private float xPushMin = -2f;
     [SerializeField]
     private float yPush = 15f;
+    private AudioSource click;
 
     // state
     private Vector2 paddleToBallDistance;
@@ -23,6 +24,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         paddleToBallDistance = transform.position - paddle.transform.position;
+        click = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,14 @@ public class Ball : MonoBehaviour
         {
             StickBallToPaddle();
             LaunchBall();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isStick)
+        {
+            click.Play();
         }
     }
 
