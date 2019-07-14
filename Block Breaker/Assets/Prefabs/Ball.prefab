@@ -136,6 +136,12 @@ MonoBehaviour:
   xPushMax: 3
   xPushMin: -2
   yPush: 15
+  clickClips:
+  - {fileID: 8300000, guid: 36094326dff8f43e7afe315790284193, type: 3}
+  - {fileID: 8300000, guid: e08532e6f49f3492eb6d9c7ddab3614a, type: 3}
+  - {fileID: 8300000, guid: 2664226e087e141729fdacfd643e87a4, type: 3}
+  - {fileID: 8300000, guid: 3803032ca228847e894e34859085a814, type: 3}
+  - {fileID: 8300000, guid: 553dee6f077dc46b3aac469cd5cadc31, type: 3}
 --- !u!82 &1764047924
 AudioSource:
   m_ObjectHideFlags: 0

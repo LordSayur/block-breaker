@@ -14,17 +14,21 @@ public class Ball : MonoBehaviour
     private float xPushMin = -2f;
     [SerializeField]
     private float yPush = 15f;
-    private AudioSource click;
+    [SerializeField]
+    private AudioClip[] clickClips;
 
     // state
     private Vector2 paddleToBallDistance;
     private bool isStick = true;
 
+    // cached component references
+    private AudioSource clickSource;
+
     // Start is called before the first frame update
     void Start()
     {
         paddleToBallDistance = transform.position - paddle.transform.position;
-        click = gameObject.GetComponent<AudioSource>();
+        clickSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,7 +45,8 @@ public class Ball : MonoBehaviour
     {
         if (!isStick)
         {
-            click.Play();
+            AudioClip clickAudio = clickClips[UnityEngine.Random.Range(0,clickClips.Length)];
+            clickSource.PlayOneShot(clickAudio);
         }
     }
 
