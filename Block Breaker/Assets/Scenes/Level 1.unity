@@ -2496,9 +2496,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746261861483104232, guid: 9b1c5a453648544159c00c4efb001b7e,
         type: 3}
+      propertyPath: clickClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746261861483104232, guid: 9b1c5a453648544159c00c4efb001b7e,
+        type: 3}
       propertyPath: paddle
       value: 
       objectReference: {fileID: 904634454}
+    - target: {fileID: 6746261861483104232, guid: 9b1c5a453648544159c00c4efb001b7e,
+        type: 3}
+      propertyPath: clickClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e08532e6f49f3492eb6d9c7ddab3614a, type: 3}
+    - target: {fileID: 6746261861483104232, guid: 9b1c5a453648544159c00c4efb001b7e,
+        type: 3}
+      propertyPath: clickClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2664226e087e141729fdacfd643e87a4, type: 3}
+    - target: {fileID: 6746261861483104232, guid: 9b1c5a453648544159c00c4efb001b7e,
+        type: 3}
+      propertyPath: clickClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3803032ca228847e894e34859085a814, type: 3}
+    - target: {fileID: 6746261861483104232, guid: 9b1c5a453648544159c00c4efb001b7e,
+        type: 3}
+      propertyPath: clickClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 553dee6f077dc46b3aac469cd5cadc31, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b1c5a453648544159c00c4efb001b7e, type: 3}
 --- !u!1001 &8540479051021937147
