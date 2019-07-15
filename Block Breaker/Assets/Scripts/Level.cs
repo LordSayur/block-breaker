@@ -6,8 +6,21 @@ public class Level : MonoBehaviour
 {
     private int breakable;
 
+    private SceneLoader sceneLoader;
 
+    private void Start() {
+        sceneLoader = FindObjectOfType<SceneLoader>();
+    }
     public void RegisterBreakable(){
         breakable++;
+    }
+
+    public void DestroyedBreakable(){
+        breakable--;
+
+        if (breakable <= 0)
+        {
+            sceneLoader.LoadNextScene();
+        }
     }
 }
