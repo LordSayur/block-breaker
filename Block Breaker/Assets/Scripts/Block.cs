@@ -7,6 +7,7 @@ public class Block : MonoBehaviour
     private Level level;
     private GameState gameState;
     [SerializeField] private AudioClip destroyClip;
+    [SerializeField] private GameObject blockSparklesVFX;
     
     private void Start() {
         gameState = FindObjectOfType<GameState>();
@@ -23,6 +24,13 @@ public class Block : MonoBehaviour
         AudioSource.PlayClipAtPoint(destroyClip, Camera.main.transform.position);
         level.DestroyedBreakable();
         gameState.AddToScore();
+        TriggerSparklesVFX();
         Destroy(gameObject);
+    }
+
+    private void TriggerSparklesVFX()
+    {
+        GameObject sparkles = Instantiate(blockSparklesVFX, transform.position, Quaternion.identity);
+        Destroy(sparkles, 1f);
     }
 }
