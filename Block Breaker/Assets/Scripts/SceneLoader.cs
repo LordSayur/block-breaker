@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    // cached references
     private GameState gamestate;
 
     private void Start() {

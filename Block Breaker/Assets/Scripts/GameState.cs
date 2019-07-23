@@ -5,10 +5,12 @@ using TMPro;
 
 public class GameState : MonoBehaviour
 {
+    // config params
     [SerializeField][Range(0.1f,10)] private float gameSpeed = 1f;
     [SerializeField] private int pointsPerBlockDestroyed = 5;
     [SerializeField]private TextMeshProUGUI scoreText;
 
+    // state variables
     private int currentScore = 0;
 
     private void Awake() {

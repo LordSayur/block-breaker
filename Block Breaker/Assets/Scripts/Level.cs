@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    // state variables
     private int breakable;
 
+    // cached references
     private SceneLoader sceneLoader;
 
     private void Start() {

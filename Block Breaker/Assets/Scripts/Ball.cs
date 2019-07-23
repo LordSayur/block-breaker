@@ -6,32 +6,25 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     // config params
-    [SerializeField]
-    private Paddle paddle;
-    [SerializeField]
-    private float xPushMax = 3f;
-    [SerializeField]
-    private float xPushMin = -2f;
-    [SerializeField]
-    private float yPush = 15f;
-    [SerializeField]
-    private AudioClip[] clickClips;
+    [SerializeField] private Paddle paddle;
+    [SerializeField] private float xPushMax = 3f;
+    [SerializeField] private float xPushMin = -2f;
+    [SerializeField] private float yPush = 15f;
+    [SerializeField] private AudioClip[] clickClips;
 
-    // state
+    // state variables
     private Vector2 paddleToBallDistance;
     private bool isStick = true;
 
-    // cached component references
+    // cached references
     private AudioSource clickSource;
 
-    // Start is called before the first frame update
     void Start()
     {
         paddleToBallDistance = transform.position - paddle.transform.position;
         clickSource = gameObject.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isStick)

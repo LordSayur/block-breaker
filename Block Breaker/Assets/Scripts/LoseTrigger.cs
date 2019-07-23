@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LoseTrigger : MonoBehaviour
 {
+    // cached references
     SceneLoader SceneLoader;
 
     private void Awake()
