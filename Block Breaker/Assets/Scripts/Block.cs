@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class Block : MonoBehaviour
     [SerializeField] private AudioClip destroyClip;
     [SerializeField] private GameObject blockSparklesVFX;
     [SerializeField] private int maxHits = 1;
+    [SerializeField] private Sprite[] blockState;
     
     // state variables
     private int timesHit = 0;
@@ -16,11 +18,13 @@ public class Block : MonoBehaviour
     // cached references
     private Level level;
     private GameState gameState;
+    private SpriteRenderer blockSprite;
     /* #endregion */
 
     private void Start()
     {
         gameState = FindObjectOfType<GameState>();
+        blockSprite = GetComponent<SpriteRenderer>();
         CountBreakableBlocks();
     }
 
@@ -39,6 +43,16 @@ public class Block : MonoBehaviour
         {
             DestroyBlock();
         }
+        else
+        {
+            LoadNextSprite();
+        }
+    }
+
+    private void LoadNextSprite()
+    {
+        int spriteIndex = timesHit - 1;
+        blockSprite.sprite = blockState[spriteIndex];
     }
 
     private void CountBreakableBlocks()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6524327518213030953}
   - component: {fileID: 6524327518213030950}
   m_Layer: 0
-  m_Name: Breakable Block
+  m_Name: Breakable Block 1
   m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,4 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyClip: {fileID: 8300000, guid: 36094326dff8f43e7afe315790284193, type: 3}
   blockSparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
-  maxHits: 2
+  maxHits: 1
+  blockState: []
