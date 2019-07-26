@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
@@ -11,6 +8,7 @@ public class Ball : MonoBehaviour
     [SerializeField] private float xPushMin = -2f;
     [SerializeField] private float yPush = 15f;
     [SerializeField] private AudioClip[] clickClips;
+    [SerializeField] private float randomFactor = 1f;
 
     // state variables
     private Vector2 paddleToBallDistance;
@@ -18,11 +16,13 @@ public class Ball : MonoBehaviour
 
     // cached references
     private AudioSource clickSource;
+    private Rigidbody2D myRigidBody2D;
 
     void Start()
     {
         paddleToBallDistance = transform.position - paddle.transform.position;
         clickSource = gameObject.GetComponent<AudioSource>();
+        myRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -36,10 +36,15 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector2 VelocityModifier = new Vector2(
+                Random.Range(randomFactor * -1, randomFactor),
+                Random.Range(randomFactor * -1, randomFactor)
+             );
         if (!isStick)
         {
             AudioClip clickAudio = clickClips[UnityEngine.Random.Range(0,clickClips.Length)];
             clickSource.PlayOneShot(clickAudio);
+            myRigidBody2D.velocity += VelocityModifier;
         }
     }
 
@@ -48,7 +53,7 @@ public class Ball : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             isStick = !isStick;
-            GetComponent<Rigidbody2D>().velocity = new Vector2(UnityEngine.Random.Range(xPushMin, xPushMax), yPush);
+            myRigidBody2D.velocity = new Vector2(UnityEngine.Random.Range(xPushMin, xPushMax), yPush);
         }
     }
 
